@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/03/2016 10:57:28 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pract01.Usuario" table="usuario" schema="public" optimistic-lock="version">
+        <id name="idUser" type="int">
+            <column name="id_user" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rango" class="pract01.Rango" fetch="select">
+            <column name="id_rango" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="50" not-null="true" />
+        </property>
+        <property name="contrasenia" type="string">
+            <column name="contrasenia" length="50" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="50" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="fecha_nacimiento" length="13" />
+        </property>
+    </class>
+</hibernate-mapping>
